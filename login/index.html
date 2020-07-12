@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Sign In</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../css/login.css" />
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.705.0.min.js"></script>
+        <script src="../js/dist/amazon-cognito-auth.min.js"></script>
+        <!-- To enable the advanced security feature -->
+        <!-- <script src="https://amazon-cognito-assets.<region>.amazoncognito.com/amazon-cognito-advanced-security-data.min.js"></script> -->
+        <script src="../js/lcs-config.js"></script>
+        <script src="../js/lcs-auth.js"></script>
+        <script src="../js/lcs-login.js"></script>
+    </head>
+    <body>
+        <!-- START: Login UI -->
+        <ul>
+            <li>
+                <div class="button">
+                    <a class="navTabs" id="signInButton" href="javascript:void(0)" title="Sign In">Sign In</a>
+                </div>
+            </li>
+            <li>
+                <div id="userEmail"></div>
+            </li>
+        </ul>
+        <!--
+        <h1>Tokens</h1>
+        <div class="outputPane" id="tokens" display="none">
+            <div class="outputForm">
+                <pre id="idToken"></pre>
+                <pre id="accToken"></pre>
+                <pre id="refToken"></pre>
+            </div>
+        </div>
+        -->
+        <script>
+            LCSLogin.doLogin(false);
+        </script>
+    </body>
+</html>

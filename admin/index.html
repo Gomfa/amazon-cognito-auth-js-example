@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Admin</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../css/login.css" />
+        <script src="../js/dist/aws-sdk.min.js"></script>
+        <script src="../js/dist/amazon-cognito-auth.min.js"></script>
+        <script src="../js/lcs-config.js"></script>
+        <script src="../js/lcs-auth.js"></script>
+        <script src="../js/lcs-login.js"></script>
+    </head>
+
+    <body>
+        <!-- START: Login UI -->
+        <ul>
+            <li>
+                <div class="button">
+                    <a class="navTabs" id="signInButton" href="javascript:void(0)" title="Sign In">Sign In</a>
+                </div>
+            </li>
+            <li>
+                <div id="userEmail"></div>
+            </li>
+        </ul>
+        <script>
+            LCSLogin.doLogin(true);
+        </script>
+        <!-- END: Login UI-->
+
+        <!-- Polly -->
+        <h1>Polly API check</h1>
+        <div id="textToSynth">
+            <input autofocus size="35" type="text" id="textEntry" value="Hello, World!" />
+            <button class="btn default" onClick="speakText()">
+                Synthesize
+            </button>
+            <p id="result">Enter text above then click Synthesize</p>
+        </div>
+        <audio id="audioPlayback" controls>
+            <source id="audioSource" type="audio/mp3" src="" />
+        </audio>
+        <script>
+            function speakText() {
+                LCSLogin.checkCredentials(true);
+
+                // Create the JSON parameters for getSynthesizeSpeechUrl
+                const speechParams = {
+                    OutputFormat: 'mp3',
+                    SampleRate: '16000',
+                    Text: '',
+                    TextType: 'text',
+                    VoiceId: 'Matthew',
+                };
+                speechParams.Text = document.getElementById('textEntry').value;
+
+                // Create the Polly service object and presigner object
+                const polly = new AWS.Polly({ apiVersion: '2016-06-10' });
+                const signer = new AWS.Polly.Presigner(speechParams, polly);
+
+                // Create presigned URL of synthesized speech file
+                signer.getSynthesizeSpeechUrl(speechParams, function (error, url) {
+                    if (error) {
+                        document.getElementById('result').innerHTML = error;
+                    } else {
+                        document.getElementById('audioSource').src = url;
+                        document.getElementById('audioPlayback').load();
+                        document.getElementById('result').innerHTML = 'Speech ready to play.';
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

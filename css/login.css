@@ -1,0 +1,100 @@
+body {
+    background-color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+.button {
+    padding: 10px;
+    text-align: center;
+}
+.outputPane {
+    color: #303232;
+    padding: 5px 20px 20px 20px;
+    margin: auto;
+    max-width: 1000px;
+    text-align: left;
+}
+.outputForm {
+    border: 1px solid #2a5c91;
+    padding: 20px;
+    margin: auto;
+}
+button {
+    background-color: #ffffff;
+    color: #2a5c91;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #2a5c91;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+a.navTabs {
+    background-color: #329ad6;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 25px;
+    border: 2px solid #329ad6;
+    text-decoration: none;
+    display: inline-block;
+}
+a.navTabs:hover:not(.active) {
+    background-color: #ffffff;
+    color: #329ad6;
+    border: 2px solid #329ad6;
+}
+.active {
+    background-color: #329ad6;
+    color: #17242d;
+    border: 2px solid #329ad6;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #17242d;
+}
+ul.navTabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+li {
+    float: right;
+    color: white;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color: #ffffff;
+    color: #2a5c91;
+}
+.active {
+    background-color: #303232;
+    color: white;
+}
+li.navTabs a {
+    color: #329ad6;
+    text-align: center;
+    padding: 14px 25px;
+    border: 2px solid #329ad6;
+    text-decoration: none;
+    display: inline-block;
+}
+li.navTabs a:hover:not(.active) {
+    background-color: #329ad6;
+    color: #ffffff;
+}
+.active {
+    background-color: #329ad6;
+    color: #ffffff;
+}
